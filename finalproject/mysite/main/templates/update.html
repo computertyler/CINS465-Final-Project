@@ -1,0 +1,61 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <script>
+    var index = "/"
+    var update = "{% url 'update' %}"
+    var about = "{% url 'about' %}"
+</script>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  </head>
+<body>
+
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <div class="top">
+        <h1>Arcade Machine Tracker</h1>
+        <div class ="navbar">
+        <a href="/" class="button">Home</a>
+        <a href="{% url 'index' %}" class="button">Chat</a>
+        <a href="{% url 'update' %}" class="button">Add/update game</a>
+        <a href="{% url 'updateLocation' %}" class="button">add game location</a>
+        <a href="{% url 'about' %}" class="button">About</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="grid-x grid-padding-x">
+
+      </div>
+
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <div class="callout">
+             <form action = "/addGame/" method="post">
+              {% csrf_token %}
+               {{form}}
+               <input type="submit" value="OK">
+            </form>
+            </div>
+          </div>
+        </div>
+
+
+      <script src="{% static 'js/vendor/jquery.js' %}"></script> 
+      <script src="{% static 'js/vendor/what-input.js' %}"></script> 
+      <script src="{% static 'js/vendor/foundation.js' %}"></script> 
+      <script src="{% static 'js/app.js' %}"></script> 
+      <script src="{% static 'js/update.js' %}"></script> 
+
+  </body>
+</html>

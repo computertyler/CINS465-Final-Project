@@ -1,0 +1,19 @@
+.machine{
+    background-color: lightgray;
+}
+h1 {
+    font-size: (150)px;
+  
+  }
+  h2{
+      text-align: center;
+  }
+  .navbar{
+    font-size: 0px;
+  }
+  .subtitle{
+    text-align: center;
+  }
+  .top{
+      background-color: lightblue;
+  }

@@ -1,0 +1,67 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Tracker</title>
+    <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  </head>
+<body>
+
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <div class="top">
+            <h1>Arcade Machine Tracker</h1>
+              <div class ="navbar">
+                <a href="/" class="button">Home</a>
+                <a href="{% url 'index' %}" class="button">Chat</a>
+                <a href="{% url 'update' %}" class="button">Add/update game</a>
+                <a href="{% url 'updateLocation' %}" class="button">add game location</a>
+                <a href="{% url 'about' %}" class="button">About</a>
+             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+          <A href = "" class = "th"></A>
+          <img id="arcade" src="{% static 'arcade.jpg' %}" alt="Arcade picture" class="center" width = "1200" height = "1200">
+        </div>
+      </div>
+
+      <div class= "gameList">
+        <div class = subTitle>
+          <b><h4><ins>List of games</ins></h4></b>
+        </div>
+        {% for loc in m_list%}
+        <div class="grid-x grid-padding-x">
+          <div class="large-12 cell">
+            <div class="callout">
+                  <div class="machine">
+                    <h4>{{ loc.game }} manufacturer: {{loc.manufacturer}}</h4>
+                    {% for l in loc.location %}
+                      <h5>Location: {{l.address}}   State: {{l.state}}  Zip: {{l.zip}}</h5>
+                    {% endfor %}
+                  </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        {% endfor %}
+      </div>
+
+
+      <script src="{% static 'js/vendor/jquery.js' %}"></script> 
+      <script src="{% static 'js/vendor/what-input.js' %}"></script> 
+      <script src="{% static 'js/vendor/foundation.js' %}"></script> 
+      <script src="{% static 'js/app.js' %}"></script> 
+
+  </body>
+</html>
